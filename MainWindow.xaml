@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Калькулятор" Height="450" Width="300" ResizeMode="NoResize" >
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <!-- Grid -->
         <Grid.RowDefinitions >
             <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -47,17 +48,42 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Center" 
                    HorizontalAlignment="Center" Text="M" FontSize="20"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Margin="10 0 10 10" 
-                   TextAlignment="Right" FontSize="48" Text="32" VerticalAlignment="Center"></TextBlock>
+                   TextAlignment="Right" FontSize="42" Text="32" VerticalAlignment="Center"></TextBlock>
         
         
-        <!-- BUTTONS BLOCK -->
+                                            <!-- BUTTONS BLOCK -->
         
         <!--Memory Buttons -->
-        <Button Grid.Row="3" Grid.Column="0" Margin="5 5 5 5" Content="MC" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="1" Margin="5 5 5 5" Content="MR" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="2" Margin="5 5 5 5" Content="MS" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="3" Margin="5 5 5 5" Content="M+" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="4" Margin="5 5 5 5" Content="M-" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="0" Margin="5" Content="MC" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="5" Content="MR" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="2" Margin="5" Content="MS" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="3" Margin="5" Content="M+" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="4" Margin="5" Content="M-" FontSize="18"></Button>
         <!--Digital buttons -->
+        <Button Grid.Row="5" Grid.Column="0" Margin="5" Content="9" FontSize="18"></Button>
+        <Button Grid.Row="5" Grid.Column="1" Margin="5" Content="8" FontSize="18"></Button>
+        <Button Grid.Row="5" Grid.Column="2" Margin="5" Content="7" FontSize="18"></Button>
+        <Button Grid.Row="6" Grid.Column="0" Margin="5" Content="6" FontSize="18"></Button>
+        <Button Grid.Row="6" Grid.Column="1" Margin="5" Content="5" FontSize="18"></Button>
+        <Button Grid.Row="6" Grid.Column="2" Margin="5" Content="4" FontSize="18"></Button>
+        <Button Grid.Row="7" Grid.Column="0" Margin="5" Content="3" FontSize="18"></Button>
+        <Button Grid.Row="7" Grid.Column="1" Margin="5" Content="2" FontSize="18"></Button>
+        <Button Grid.Row="7" Grid.Column="2" Margin="5" Content="1" FontSize="18"></Button>
+        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" 
+                Content="0" FontSize="18"></Button>
+        <!--Function buttons -->
+        <Button Grid.Row="4" Grid.Column="0" Margin="5" Content="⬅" FontSize="28" ></Button>
+        <Button Grid.Row="4" Grid.Column="1" Margin="5" Content="CE" FontSize="18"></Button>
+        <Button Grid.Row="4" Grid.Column="2" Margin="5" Content="С" FontSize="18"></Button>
+        <Button Grid.Row="4" Grid.Column="3" Margin="5" Content="±" FontSize="18"></Button>
+        <Button Grid.Row="4" Grid.Column="4" Margin="5" Content="√" FontSize="18"></Button>
+        <Button Grid.Row="5" Grid.Column="3" Margin="5" Content="/" FontSize="18"></Button>
+        <Button Grid.Row="5" Grid.Column="4" Margin="5" Content="%" FontSize="18"></Button>
+        <Button Grid.Row="6" Grid.Column="3" Margin="5" Content="*" FontSize="18"></Button>
+        <Button Grid.Row="6" Grid.Column="4" Margin="5" Content="1/X" FontSize="18"></Button>
+        <Button Grid.Row="7" Grid.Column="3" Margin="5" Content="-" FontSize="18"></Button>
+        <Button Grid.Row="8" Grid.Column="3" Margin="5" Content="+" FontSize="18"></Button>
+        <Button Grid.Row="7" Grid.Column="4" Grid.RowSpan="2" Margin="5" Content="=" FontSize="18"></Button>
+        <Button Grid.Row="8" Grid.Column="2" Margin="5" Content="," FontSize="18"></Button>
     </Grid>
 </Window>
