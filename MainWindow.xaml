@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="450" Width="300" ResizeMode="NoResize">
-    <Grid ShowGridLines="false">
-                                            <!-- Grid -->
+        Title="Калькулятор" Height="450" Width="300" ResizeMode="NoResize" >
+    <Grid ShowGridLines="True">
+        <!-- Grid -->
         <Grid.RowDefinitions >
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -25,8 +24,9 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-                                            <!-- Top Menu -->
-        <Menu  Grid.ColumnSpan="5" Grid.RowSpan="1"  VerticalAlignment="Top">
+        <!-- Top Menu -->
+        <Menu  Grid.ColumnSpan="5" Grid.RowSpan="1"  
+               VerticalAlignment="Stretch">
             <MenuItem Header="Правка">
                 <MenuItem Header="Копировать    Ctrl+C"></MenuItem>
                 <MenuItem Header="Вставить         Ctrl+V"></MenuItem>
@@ -37,6 +37,27 @@
                 <MenuItem Header="О программе"></MenuItem>
             </MenuItem>
         </Menu>
-                                            <!-- Rectangle Display -->
+        <!-- Rectangle Display -->
+        <Rectangle Stretch="Fill" Grid.Row="1" Grid.ColumnSpan="5" Grid.Column="0"
+                   Grid.RowSpan="2" Margin="5" Stroke="Black" StrokeThickness="1">
+        </Rectangle>
+       <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" TextAlignment="Right" 
+                  Text="7 + 8 + 5" Margin="10" FontSize="20" VerticalAlignment="Center"
+                  Opacity="0.5"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" Text="M" FontSize="20"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Margin="10 0 10 10" 
+                   TextAlignment="Right" FontSize="48" Text="32" VerticalAlignment="Center"></TextBlock>
+        
+        
+        <!-- BUTTONS BLOCK -->
+        
+        <!--Memory Buttons -->
+        <Button Grid.Row="3" Grid.Column="0" Margin="5 5 5 5" Content="MC" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="5 5 5 5" Content="MR" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="2" Margin="5 5 5 5" Content="MS" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="3" Margin="5 5 5 5" Content="M+" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="4" Margin="5 5 5 5" Content="M-" FontSize="18"></Button>
+        <!--Digital buttons -->
     </Grid>
 </Window>
