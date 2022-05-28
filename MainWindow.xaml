@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="300">
-    <Grid>
-        
+        Title="Калькулятор" Height="450" Width="300" ResizeMode="NoResize">
+    <Grid ShowGridLines="false">
+                                            <!-- Grid -->
+        <Grid.RowDefinitions >
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+                                            <!-- Top Menu -->
+        <Menu  Grid.ColumnSpan="5" Grid.RowSpan="1"  VerticalAlignment="Top">
+            <MenuItem Header="Правка">
+                <MenuItem Header="Копировать    Ctrl+C"></MenuItem>
+                <MenuItem Header="Вставить         Ctrl+V"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="Посмотреть справку    F1"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="О программе"></MenuItem>
+            </MenuItem>
+        </Menu>
+                                            <!-- Rectangle Display -->
     </Grid>
 </Window>
