@@ -5,6 +5,14 @@ public class CalcLogic
 {
     public string inputBuffer = "0";
     public string outputBuffer = "";
+    private double accumulator;
+    private enum State
+    {
+        firstOp,
+        secondOp
+    }
+
+    private State state = State.firstOp;
     public void SendToInputBuffer(string elem)
     {
         if (inputBuffer.Length < 9)
@@ -27,7 +35,6 @@ public class CalcLogic
     {
         inputBuffer = !inputBuffer.Contains(',') ? inputBuffer += ',' : inputBuffer;
     }
-
     public void ChangeSign()
     {
         double num = double.Parse(inputBuffer);
