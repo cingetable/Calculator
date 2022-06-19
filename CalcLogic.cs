@@ -14,5 +14,8 @@ public class CalcLogic
         }
     }
 
-    
+    public void Delete()
+    {
+        inputBuffer = inputBuffer.Length == 1 ? inputBuffer = "0" : inputBuffer.Remove(inputBuffer.Length - 1);
+    }
 }
