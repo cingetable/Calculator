@@ -35,11 +35,8 @@ namespace Calculator
 
         public void DoFloatingNum(object sender, EventArgs e)
         {
-            if (!calc.inputBuffer.Contains(",") && calc.inputBuffer != String.Empty)
-            {
-                calc.SendToInputBuffer((sender as Button).Content.ToString());
-                inputBuffer.Text = calc.inputBuffer;
-            }
+            calc.SetDot();
+            inputBuffer.Text = calc.inputBuffer;
         }
 
         public void DeleteLastNum(object sender, EventArgs e)
