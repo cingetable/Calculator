@@ -26,29 +26,29 @@ namespace Calculator
             InitializeComponent();
             inputBuffer.Text = calc.inputBuffer;
         }
-
         public void Digital_Button(object sender, EventArgs e)
         { 
                 calc.SendToInputBuffer((sender as Button).Content.ToString());
                 inputBuffer.Text = calc.inputBuffer;
         }
-
         public void DoFloatingNum(object sender, EventArgs e)
         {
             calc.SetDot();
             inputBuffer.Text = calc.inputBuffer;
         }
-
         public void DeleteLastNum(object sender, EventArgs e)
         {
             calc.Delete();
             inputBuffer.Text = calc.inputBuffer;
         }
-        
         public void GetResult(object sender, EventArgs e)
         {
             inputBuffer.Text = calc.inputBuffer;
         }
-        
+        public void ChangeSign(object sender, EventArgs e)
+        {
+            calc.ChangeSign();
+            inputBuffer.Text = calc.inputBuffer;
+        }
     }
 }
