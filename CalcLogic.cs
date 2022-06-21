@@ -5,14 +5,19 @@ public class CalcLogic
 {
     public string inputBuffer = "0";
     public string outputBuffer = "";
+    
     private double accumulator;
-    private enum State
+    private double operand;
+    
+    private string lastOp = "";
+    
+    public enum State
     {
         firstOp,
         secondOp
     }
 
-    private State state = State.firstOp;
+    public State state { get; private set; } = State.firstOp;
     public void SendToInputBuffer(string elem)
     {
         if (inputBuffer.Length < 9)
@@ -41,4 +46,28 @@ public class CalcLogic
         num = -num;
         inputBuffer = num.ToString();
     }
+
+    public void GetResult()
+    {
+        if (lastOp == "+") inputBuffer = (double.Parse(inputBuffer) + accumulator).ToString();
+    }
+    public void Plus() 
+    { 
+        lastOp = "+"; 
+        if (state == State.firstOp) 
+        { 
+            accumulator = double.Parse(inputBuffer);
+            inputBuffer = "0";
+            state = State.secondOp; 
+        } 
+        else 
+        { 
+            operand = double.Parse(inputBuffer); 
+            accumulator += operand; 
+            inputBuffer = accumulator.ToString(); 
+            state = State.firstOp; 
+        } 
+    }
+
+    
 }

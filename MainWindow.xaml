@@ -82,8 +82,8 @@
         <Button Grid.Row="6" Grid.Column="3" Margin="5" Content="*" FontSize="18"></Button>
         <Button Grid.Row="6" Grid.Column="4" Margin="5" Content="1/X" FontSize="18"></Button>
         <Button Grid.Row="7" Grid.Column="3" Margin="5" Content="-" FontSize="18"></Button>
-        <Button Grid.Row="8" Grid.Column="3" Margin="5" Content="+" FontSize="18"></Button>
-        <Button Grid.Row="7" Grid.Column="4" Grid.RowSpan="2" Margin="5" Content="=" FontSize="18"></Button>
+        <Button Grid.Row="8" Grid.Column="3" Margin="5" Content="+" FontSize="18" Click="Plus"></Button>
+        <Button Grid.Row="7" Grid.Column="4" Grid.RowSpan="2" Margin="5" Content="=" FontSize="18" Click="EndCalculating"></Button>
         <Button Grid.Row="8" Grid.Column="2" Margin="5" Content="," FontSize="18" Click="DoFloatingNum"></Button>
     </Grid>
 </Window>

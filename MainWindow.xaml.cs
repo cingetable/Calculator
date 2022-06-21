@@ -50,5 +50,17 @@ namespace Calculator
             calc.ChangeSign();
             inputBuffer.Text = calc.inputBuffer;
         }
+
+        public void Plus(object sender, EventArgs e)
+        {
+            calc.Plus();
+            calc.inputBuffer = inputBuffer.Text;
+        }
+
+        private void EndCalculating(object sender, RoutedEventArgs e)
+        {
+           calc.GetResult();
+           inputBuffer.Text = calc.inputBuffer;
+        }
     }
 }
