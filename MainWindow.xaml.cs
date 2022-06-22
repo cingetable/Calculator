@@ -40,7 +40,7 @@ namespace Calculator
         }
         public void Operation(object sender, EventArgs e)
         {
-            outputBuffer.Text = calc.state.ToString();
+          //  outputBuffer.Text = calc.state.ToString();
             string operationType = (sender as Button).Content.ToString();
             SetOperationType(operationType);
             if (calc.state == CalcLogic.State.firstOp)
@@ -61,6 +61,25 @@ namespace Calculator
                 case "/": calc.Divide();
                     break;
             }
-        } 
+        }
+        private void ClearCurrentNum(object sender, RoutedEventArgs e) {
+            inputBuffer.Text = "0";
+            calc.inputBuffer = inputBuffer.Text;
+        }
+        private void ClearCalculation(object sender, RoutedEventArgs e) {
+            calc.ResetCalculating();
+            outputBuffer.Text = "";
+            inputBuffer.Text = calc.inputBuffer;
+        }
+        public void Memory(object sender, RoutedEventArgs e) {
+            string operationType = (sender as Button).Content.ToString();
+            calc.MemoryControl(operationType);
+            inputBuffer.Text = calc.inputBuffer;
+        }
+
+        private void Square(object sender, RoutedEventArgs e) {
+            calc.SetSqruare();
+            inputBuffer.Text = calc.inputBuffer;
+        }
     }
 }

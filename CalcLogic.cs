@@ -12,6 +12,7 @@ public class CalcLogic
     private double accumulator;
     private double operand;
     private string lastOp = "";
+    public double memoryCell = 0;
     public enum State
     {
         firstOp,
@@ -20,10 +21,7 @@ public class CalcLogic
     public State state { get; private set; } = State.firstOp;
     public void SendToInputBuffer(string? elem)
     {
-        if (inputBuffer.Length < 9)
-        {
-            inputBuffer = inputBuffer[inputBuffer.Length - 1] == '0' ? inputBuffer = elem : inputBuffer += elem;
-        }
+        inputBuffer = inputBuffer[inputBuffer.Length - 1] == '0' ? inputBuffer = elem : inputBuffer += elem;  
     }
     public void Delete()
     {
@@ -125,5 +123,28 @@ public class CalcLogic
             inputBuffer = accumulator.ToString(); 
             state = State.firstOp; 
         } 
+    }
+    public void ResetCalculating() {
+        inputBuffer = "0";
+        accumulator = 0;
+        operand = 0;
+        state = State.firstOp;
+    }
+    public void MemoryControl(string opType) {
+        switch (opType) {
+            case "MS": memoryCell = double.Parse(inputBuffer);
+                break;
+            case "MC": memoryCell = 0;
+                break;
+            case "MR": inputBuffer = memoryCell.ToString();
+                break;
+            case "M+": memoryCell += double.Parse(inputBuffer);
+                break;
+            case "M-": memoryCell -= double.Parse(inputBuffer);
+                break;
+        }
+    }
+    public void SetSqruare() {
+        inputBuffer = double.Parse(inputBuffer) >= 0 ? inputBuffer = (Math.Sqrt(double.Parse(inputBuffer))).ToString() : "Недопустимый ввод";
     }
 }

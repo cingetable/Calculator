@@ -54,11 +54,11 @@
                                             <!-- BUTTONS BLOCK -->
         
         <!--Memory Buttons -->
-        <Button Grid.Row="3" Grid.Column="0" Margin="5" Content="MC" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="1" Margin="5" Content="MR" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="2" Margin="5" Content="MS" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="3" Margin="5" Content="M+" FontSize="18"></Button>
-        <Button Grid.Row="3" Grid.Column="4" Margin="5" Content="M-" FontSize="18"></Button>
+        <Button Grid.Row="3" Grid.Column="0" Margin="5" Content="MC" FontSize="18" Click="Memory"></Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="5" Content="MR" FontSize="18" Click="Memory"></Button>
+        <Button Grid.Row="3" Grid.Column="2" Margin="5" Content="MS" FontSize="18" Click="Memory"></Button>
+        <Button Grid.Row="3" Grid.Column="3" Margin="5" Content="M+" FontSize="18" Click="Memory"></Button>
+        <Button Grid.Row="3" Grid.Column="4" Margin="5" Content="M-" FontSize="18" Click="Memory"></Button>
         <!--Digital buttons -->
         <Button Grid.Row="5" Grid.Column="0" Margin="5" Content="9" FontSize="18" Click="Digital_Button"></Button>
         <Button Grid.Row="5" Grid.Column="1" Margin="5" Content="8" FontSize="18" Click="Digital_Button"></Button>
@@ -73,10 +73,10 @@
                 Content="0" FontSize="18" Click="Digital_Button"></Button>
         <!--Function buttons -->
         <Button Grid.Row="4" Grid.Column="0" Margin="5" Content="⬅" FontSize="28" Click="DeleteLastNum"></Button>
-        <Button Grid.Row="4" Grid.Column="1" Margin="5" Content="CE" FontSize="18"></Button>
-        <Button Grid.Row="4" Grid.Column="2" Margin="5" Content="С" FontSize="18"></Button>
+        <Button Grid.Row="4" Grid.Column="1" Margin="5" Content="CE" FontSize="18" Click="ClearCurrentNum"></Button>
+        <Button Grid.Row="4" Grid.Column="2" Margin="5" Content="С" FontSize="18" Click="ClearCalculation"></Button>
         <Button Grid.Row="4" Grid.Column="3" Margin="5" Content="±" FontSize="18" Click="ChangeSign"></Button>
-        <Button Grid.Row="4" Grid.Column="4" Margin="5" Content="√" FontSize="18"></Button>
+        <Button Grid.Row="4" Grid.Column="4" Margin="5" Content="√" FontSize="18" Click="Square"></Button>
         <Button Grid.Row="5" Grid.Column="3" Margin="5" Content="/" FontSize="18" Click="Operation"></Button>
         <Button Grid.Row="5" Grid.Column="4" Margin="5" Content="%" FontSize="18"></Button>
         <Button Grid.Row="6" Grid.Column="3" Margin="5" Content="*" FontSize="18" Click="Operation"></Button>
