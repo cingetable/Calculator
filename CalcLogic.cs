@@ -7,22 +7,18 @@ namespace Calculator;
 /// </summary>
 public class CalcLogic
 {
-    public string inputBuffer = "0";
+    public string? inputBuffer = "0";
     public string outputBuffer = "";
-    
     private double accumulator;
     private double operand;
-    
     private string lastOp = "";
-    
     public enum State
     {
         firstOp,
         secondOp
     }
-
     public State state { get; private set; } = State.firstOp;
-    public void SendToInputBuffer(string elem)
+    public void SendToInputBuffer(string? elem)
     {
         if (inputBuffer.Length < 9)
         {
@@ -50,7 +46,6 @@ public class CalcLogic
         num = num == 0 ? num : -num;
         inputBuffer = num.ToString();
     }
-
     public void GetResult()
     {
         if (lastOp == "+") inputBuffer = (double.Parse(inputBuffer) + accumulator).ToString();
@@ -61,7 +56,7 @@ public class CalcLogic
     }
     public void Plus() 
     { 
-        Console.WriteLine(state.ToString());
+       
         lastOp = "+"; 
         if (state == State.firstOp) 
         { 
@@ -79,7 +74,7 @@ public class CalcLogic
     }
     public void Minus() 
     { 
-        Console.WriteLine(state.ToString());
+        
         lastOp = "-"; 
         if (state == State.firstOp) 
         { 
@@ -89,11 +84,46 @@ public class CalcLogic
         } 
         else 
         { 
-            operand = double.Parse(inputBuffer); 
-            accumulator = operand - accumulator; 
+            operand = double.Parse(inputBuffer);
+            accumulator -= operand;
+            inputBuffer = operand.ToString(); 
+            state = State.firstOp; 
+        } 
+    }
+    public void Multiply() 
+    { 
+        
+        lastOp = "*"; 
+        if (state == State.firstOp) 
+        { 
+            accumulator = double.Parse(inputBuffer);
+            inputBuffer = "0";
+            state = State.secondOp; 
+        } 
+        else 
+        { 
+            operand = double.Parse(inputBuffer);
+            accumulator *= operand;
+            
             inputBuffer = accumulator.ToString(); 
             state = State.firstOp; 
         } 
     }
-    
+    public void Divide() 
+    { 
+        lastOp = "/"; 
+        if (state == State.firstOp) 
+        { 
+            accumulator = double.Parse(inputBuffer);
+            inputBuffer = "0";
+            state = State.secondOp; 
+        } 
+        else 
+        { 
+            operand = double.Parse(inputBuffer);
+            accumulator /= operand;
+            inputBuffer = accumulator.ToString(); 
+            state = State.firstOp; 
+        } 
+    }
 }

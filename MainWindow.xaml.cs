@@ -8,15 +8,14 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        internal CalcLogic calc = new CalcLogic();
         public MainWindow()
         {
             InitializeComponent();
-            inputBuffer.Text = calc.inputBuffer;
         }
+        internal CalcLogic calc = new CalcLogic();
         public void Digital_Button(object sender, EventArgs e)
         { 
-                calc.SendToInputBuffer((sender as Button).Content.ToString());
+                calc.SendToInputBuffer((sender as Button)?.Content.ToString());
                 inputBuffer.Text = calc.inputBuffer;
         }
         public void DoFloatingNum(object sender, EventArgs e)
@@ -31,6 +30,7 @@ namespace Calculator
         }
         public void GetResult(object sender, EventArgs e)
         {
+            calc.GetResult();
             inputBuffer.Text = calc.inputBuffer;
         }
         public void ChangeSign(object sender, EventArgs e)
@@ -38,29 +38,29 @@ namespace Calculator
             calc.ChangeSign();
             inputBuffer.Text = calc.inputBuffer;
         }
-
-        public void Plus(object sender, EventArgs e)
+        public void Operation(object sender, EventArgs e)
         {
-            calc.Plus();
+            outputBuffer.Text = calc.state.ToString();
+            string operationType = (sender as Button).Content.ToString();
+            SetOperationType(operationType);
             if (calc.state == CalcLogic.State.firstOp)
             {
                 inputBuffer.Text = calc.inputBuffer;
-            }   
+                SetOperationType(operationType);
+            }
         }
-
-        private void EndCalculating(object sender, RoutedEventArgs e)
-        {
-           calc.GetResult();
-           inputBuffer.Text = calc.inputBuffer;
-        }
-
-        private void Minus(object sender, RoutedEventArgs e)
-        {
-           calc.Minus();
-           if (calc.state == CalcLogic.State.firstOp)
-           {
-               inputBuffer.Text = calc.inputBuffer;
-           }
-        }
+        private void SetOperationType(string opType) {
+            switch (opType)
+            {
+                case "+": calc.Plus();
+                    break;
+                case "-": calc.Minus();
+                    break;
+                case "*": calc.Multiply();
+                    break;
+                case "/": calc.Divide();
+                    break;
+            }
+        } 
     }
 }
