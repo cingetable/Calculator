@@ -1,6 +1,10 @@
 ﻿using System;
-namespace Calculator;
+using System.Diagnostics;
 
+namespace Calculator;
+/// <summary>
+/// logic for MainWindow.xaml
+/// </summary>
 public class CalcLogic
 {
     public string inputBuffer = "0";
@@ -50,9 +54,12 @@ public class CalcLogic
     public void GetResult()
     {
         if (lastOp == "+") inputBuffer = (double.Parse(inputBuffer) + accumulator).ToString();
+
+        state = State.firstOp;
     }
     public void Plus() 
     { 
+        Console.WriteLine(state.ToString());
         lastOp = "+"; 
         if (state == State.firstOp) 
         { 
