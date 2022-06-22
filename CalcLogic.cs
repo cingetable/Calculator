@@ -47,14 +47,16 @@ public class CalcLogic
     public void ChangeSign()
     {
         double num = double.Parse(inputBuffer);
-        num = -num;
+        num = num == 0 ? num : -num;
         inputBuffer = num.ToString();
     }
 
     public void GetResult()
     {
         if (lastOp == "+") inputBuffer = (double.Parse(inputBuffer) + accumulator).ToString();
-
+        if (lastOp == "-") inputBuffer = (double.Parse(inputBuffer) - accumulator).ToString();
+        if (lastOp == "*") inputBuffer = (double.Parse(inputBuffer) * accumulator).ToString();
+        if (lastOp == "/") inputBuffer = (double.Parse(inputBuffer) / accumulator).ToString();
         state = State.firstOp;
     }
     public void Plus() 
@@ -75,6 +77,23 @@ public class CalcLogic
             state = State.firstOp; 
         } 
     }
-
+    public void Minus() 
+    { 
+        Console.WriteLine(state.ToString());
+        lastOp = "-"; 
+        if (state == State.firstOp) 
+        { 
+            accumulator = double.Parse(inputBuffer);
+            inputBuffer = "0";
+            state = State.secondOp; 
+        } 
+        else 
+        { 
+            operand = double.Parse(inputBuffer); 
+            accumulator = operand - accumulator; 
+            inputBuffer = accumulator.ToString(); 
+            state = State.firstOp; 
+        } 
+    }
     
 }

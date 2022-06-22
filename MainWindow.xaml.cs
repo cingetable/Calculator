@@ -53,5 +53,14 @@ namespace Calculator
            calc.GetResult();
            inputBuffer.Text = calc.inputBuffer;
         }
+
+        private void Minus(object sender, RoutedEventArgs e)
+        {
+           calc.Minus();
+           if (calc.state == CalcLogic.State.firstOp)
+           {
+               inputBuffer.Text = calc.inputBuffer;
+           }
+        }
     }
 }
