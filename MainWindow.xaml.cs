@@ -16,7 +16,7 @@ namespace Calculator
         private void ChangeFontSize() {
             if (inputBuffer.Text.Length <= 9) inputBuffer.FontSize = 42;
             if (inputBuffer.Text.Length > 9 && inputBuffer.Text.Length <= 12) inputBuffer.FontSize = 32;
-            if (inputBuffer.Text.Length > 12) inputBuffer.FontSize = 24;
+            if (inputBuffer.Text.Length > 12) inputBuffer.FontSize = 20;
         }
         public void Digital_Button(object sender, EventArgs e)
         { 
@@ -63,10 +63,12 @@ namespace Calculator
             calc.ExecuteOperation(opType);
         }
         private void ClearCurrentNum(object sender, RoutedEventArgs e) {
-          
+
+          if(!calc.isBlocked)  {
                 inputBuffer.Text = "0";
                 calc.inputBuffer = inputBuffer.Text;
-            ChangeFontSize();
+                ChangeFontSize();
+            }
         }
         private void ClearCalculation(object sender, RoutedEventArgs e) {
             calc.ResetCalculating();

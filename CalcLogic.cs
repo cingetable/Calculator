@@ -13,7 +13,7 @@ public class CalcLogic
     private double operand;
     private string lastOp = "";
     private double memoryCell = 0;
-    private bool isBlocked = false;
+    public bool isBlocked { get; private set; }= false;
     public enum State
     {
         firstOp,
@@ -28,13 +28,13 @@ public class CalcLogic
     }
     public void Delete()
     {
-        if (!inputBuffer.Contains('-'))
-        {
-            inputBuffer = inputBuffer.Length == 1 ? inputBuffer = "0" : inputBuffer.Remove(inputBuffer.Length - 1);
-        }
-        else
-        {
-            inputBuffer = inputBuffer.Length == 2 ? inputBuffer = "0" : inputBuffer.Remove(inputBuffer.Length - 1);
+      if (!isBlocked)  {
+            if (!inputBuffer.Contains('-')) {
+                inputBuffer = inputBuffer.Length == 1 ? inputBuffer = "0" : inputBuffer.Remove(inputBuffer.Length - 1);
+            }
+            else {
+                inputBuffer = inputBuffer.Length == 2 ? inputBuffer = "0" : inputBuffer.Remove(inputBuffer.Length - 1);
+            }
         }
     }
     public void SetDot()
