@@ -7,13 +7,13 @@ namespace Calculator;
 /// </summary>
 public class CalcLogic
 {
-    public string? inputBuffer = "0";
+    public string inputBuffer = "0";
     public string outputBuffer = "";
     private double accumulator;
     private double operand;
     private string lastOp = "";
     private double memoryCell = 0;
-    
+    private bool isBlocked = false;
     public enum State
     {
         firstOp,
@@ -22,7 +22,9 @@ public class CalcLogic
     public State state { get; private set; } = State.firstOp;
     public void SendToInputBuffer(string? elem)
     {
-        inputBuffer = inputBuffer[inputBuffer.Length - 1] == '0' ? inputBuffer = elem : inputBuffer += elem;  
+       if (!isBlocked) {
+            inputBuffer = inputBuffer[inputBuffer.Length - 1] == '0' ? inputBuffer = elem : inputBuffer += elem;
+        }  
     }
     public void Delete()
     {
@@ -49,6 +51,7 @@ public class CalcLogic
     {
         ExecuteOperation(lastOp);
         state = State.firstOp;
+        isBlocked = true;
     }
     public void ExecuteOperation(string opType) 
     { 
@@ -82,6 +85,7 @@ public class CalcLogic
         accumulator = 0;
         operand = 0;
         state = State.firstOp;
+        isBlocked = false;
     }
     public void MemoryControl(string opType) {
         switch (opType) {
@@ -101,6 +105,7 @@ public class CalcLogic
         inputBuffer = double.Parse(inputBuffer) >= 0 ? 
             inputBuffer = (Math.Sqrt(double.Parse(inputBuffer))).ToString() :
             "Недопустимый ввод";
+        isBlocked = true;
     }
     
 }

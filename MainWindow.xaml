@@ -48,7 +48,7 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Center" 
                    HorizontalAlignment="Center" Text="" FontSize="20"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Margin="10 0 10 10" 
-                   TextAlignment="Right" FontSize="42" Text="" VerticalAlignment="Center" Name="inputBuffer"> </TextBlock>
+                   TextAlignment="Right" FontSize="42" Text="" VerticalAlignment="Center" Name="inputBuffer"></TextBlock>
         
         
                                             <!-- BUTTONS BLOCK -->
