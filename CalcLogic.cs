@@ -47,34 +47,12 @@ public class CalcLogic
     }
     public void GetResult()
     {
-        if (lastOp == "+") Plus();
-        if (lastOp == "-") Minus();
-        if (lastOp == "*") Multiply();
-        if (lastOp == "/") Divide();
+        ExecuteOperation(lastOp);
         state = State.firstOp;
     }
-    public void Plus() 
+    public void ExecuteOperation(string opType) 
     { 
-       
-        lastOp = "+"; 
-        if (state == State.firstOp) 
-        { 
-            accumulator = double.Parse(inputBuffer);
-            inputBuffer = "0";
-            state = State.secondOp; 
-        } 
-        else 
-        { 
-            operand = double.Parse(inputBuffer); 
-            accumulator += operand; 
-            inputBuffer = accumulator.ToString(); 
-            state = State.firstOp; 
-        } 
-    }
-    public void Minus() 
-    { 
-        
-        lastOp = "-"; 
+        lastOp = opType; 
         if (state == State.firstOp) 
         { 
             accumulator = double.Parse(inputBuffer);
@@ -84,47 +62,21 @@ public class CalcLogic
         else 
         { 
             operand = double.Parse(inputBuffer);
-            accumulator = operand - accumulator;
-            inputBuffer = operand.ToString(); 
-            state = State.firstOp; 
-        } 
-    }
-    public void Multiply() 
-    { 
-        
-        lastOp = "*"; 
-        if (state == State.firstOp) 
-        { 
-            accumulator = double.Parse(inputBuffer);
-            inputBuffer = "0";
-            state = State.secondOp; 
-        } 
-        else 
-        { 
-            operand = double.Parse(inputBuffer);
-            accumulator *= operand;
-            
+            switch (opType) {
+                case "+": accumulator += operand;
+                    break;
+                case "-": accumulator -= operand;
+                    break;
+                case "*": accumulator *= operand;
+                    break;
+                case "/": accumulator /= operand;
+                    break;
+            }
             inputBuffer = accumulator.ToString(); 
             state = State.firstOp; 
         } 
     }
-    public void Divide() 
-    { 
-        lastOp = "/"; 
-        if (state == State.firstOp) 
-        { 
-            accumulator = double.Parse(inputBuffer);
-            inputBuffer = "0";
-            state = State.secondOp; 
-        } 
-        else 
-        { 
-            operand = double.Parse(inputBuffer);
-            accumulator /= operand;
-            inputBuffer = accumulator.ToString(); 
-            state = State.firstOp; 
-        } 
-    }
+   
     public void ResetCalculating() {
         inputBuffer = "0";
         accumulator = 0;
@@ -146,7 +98,9 @@ public class CalcLogic
         }
     }
     public void SetSqruare() {
-        inputBuffer = double.Parse(inputBuffer) >= 0 ? inputBuffer = (Math.Sqrt(double.Parse(inputBuffer))).ToString() : "Недопустимый ввод";
+        inputBuffer = double.Parse(inputBuffer) >= 0 ? 
+            inputBuffer = (Math.Sqrt(double.Parse(inputBuffer))).ToString() :
+            "Недопустимый ввод";
     }
     
 }

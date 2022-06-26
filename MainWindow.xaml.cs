@@ -50,17 +50,7 @@ namespace Calculator
             } 
         }
         private void SetOperationType(string opType) {
-            switch (opType)
-            {
-                case "+": calc.Plus();
-                    break;
-                case "-": calc.Minus();
-                    break;
-                case "*": calc.Multiply();
-                    break;
-                case "/": calc.Divide();
-                    break;
-            }
+            calc.ExecuteOperation(opType);
         }
         private void ClearCurrentNum(object sender, RoutedEventArgs e) {
           
@@ -82,7 +72,6 @@ namespace Calculator
 
         public void Square(object sender, RoutedEventArgs e) {
             calc.SetSqruare();
-            
             inputBuffer.Text = calc.inputBuffer;
         }
     }
