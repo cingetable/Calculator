@@ -12,7 +12,8 @@ public class CalcLogic
     private double accumulator;
     private double operand;
     private string lastOp = "";
-    public double memoryCell = 0;
+    private double memoryCell = 0;
+    
     public enum State
     {
         firstOp,
@@ -46,10 +47,10 @@ public class CalcLogic
     }
     public void GetResult()
     {
-        if (lastOp == "+") inputBuffer = (double.Parse(inputBuffer) + accumulator).ToString();
-        if (lastOp == "-") inputBuffer = (double.Parse(inputBuffer) - accumulator).ToString();
-        if (lastOp == "*") inputBuffer = (double.Parse(inputBuffer) * accumulator).ToString();
-        if (lastOp == "/") inputBuffer = (double.Parse(inputBuffer) / accumulator).ToString();
+        if (lastOp == "+") Plus();
+        if (lastOp == "-") Minus();
+        if (lastOp == "*") Multiply();
+        if (lastOp == "/") Divide();
         state = State.firstOp;
     }
     public void Plus() 
@@ -83,7 +84,7 @@ public class CalcLogic
         else 
         { 
             operand = double.Parse(inputBuffer);
-            accumulator -= operand;
+            accumulator = operand - accumulator;
             inputBuffer = operand.ToString(); 
             state = State.firstOp; 
         } 
@@ -147,4 +148,5 @@ public class CalcLogic
     public void SetSqruare() {
         inputBuffer = double.Parse(inputBuffer) >= 0 ? inputBuffer = (Math.Sqrt(double.Parse(inputBuffer))).ToString() : "Недопустимый ввод";
     }
+    
 }

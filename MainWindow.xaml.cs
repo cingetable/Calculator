@@ -6,8 +6,8 @@ namespace Calculator
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -15,7 +15,7 @@ namespace Calculator
         internal CalcLogic calc = new CalcLogic();
         public void Digital_Button(object sender, EventArgs e)
         { 
-                calc.SendToInputBuffer((sender as Button)?.Content.ToString());
+               calc.SendToInputBuffer((sender as Button)?.Content.ToString());
                 inputBuffer.Text = calc.inputBuffer;
         }
         public void DoFloatingNum(object sender, EventArgs e)
@@ -25,12 +25,12 @@ namespace Calculator
         }
         public void DeleteLastNum(object sender, EventArgs e)
         {
-            calc.Delete();
+           calc.Delete();
             inputBuffer.Text = calc.inputBuffer;
         }
         public void GetResult(object sender, EventArgs e)
         {
-            calc.GetResult();
+          calc.GetResult();
             inputBuffer.Text = calc.inputBuffer;
         }
         public void ChangeSign(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace Calculator
             {
                 inputBuffer.Text = calc.inputBuffer;
                 SetOperationType(operationType);
-            }
+            } 
         }
         private void SetOperationType(string opType) {
             switch (opType)
@@ -63,13 +63,16 @@ namespace Calculator
             }
         }
         private void ClearCurrentNum(object sender, RoutedEventArgs e) {
-            inputBuffer.Text = "0";
-            calc.inputBuffer = inputBuffer.Text;
+          
+                inputBuffer.Text = "0";
+                calc.inputBuffer = inputBuffer.Text;
+            
         }
         private void ClearCalculation(object sender, RoutedEventArgs e) {
             calc.ResetCalculating();
             outputBuffer.Text = "";
             inputBuffer.Text = calc.inputBuffer;
+            
         }
         public void Memory(object sender, RoutedEventArgs e) {
             string operationType = (sender as Button).Content.ToString();
@@ -77,8 +80,9 @@ namespace Calculator
             inputBuffer.Text = calc.inputBuffer;
         }
 
-        private void Square(object sender, RoutedEventArgs e) {
+        public void Square(object sender, RoutedEventArgs e) {
             calc.SetSqruare();
+            
             inputBuffer.Text = calc.inputBuffer;
         }
     }
