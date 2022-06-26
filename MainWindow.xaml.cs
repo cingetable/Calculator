@@ -66,12 +66,13 @@ namespace Calculator
           
                 inputBuffer.Text = "0";
                 calc.inputBuffer = inputBuffer.Text;
-            
+            ChangeFontSize();
         }
         private void ClearCalculation(object sender, RoutedEventArgs e) {
             calc.ResetCalculating();
             outputBuffer.Text = "";
             inputBuffer.Text = calc.inputBuffer;
+            ChangeFontSize();
             
         }
         public void Memory(object sender, RoutedEventArgs e) {
