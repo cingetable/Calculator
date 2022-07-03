@@ -93,5 +93,9 @@ namespace Calculator
             calc.OneDivideX();
             inputBuffer.Text = calc.inputBuffer;
         }
+
+        private void Persent(object sender, RoutedEventArgs e) {
+            calc.PersentOp();
+        }
     }
 }

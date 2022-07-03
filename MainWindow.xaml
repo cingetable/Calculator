@@ -78,7 +78,7 @@
         <Button Grid.Row="4" Grid.Column="3" Margin="5" Content="±" FontSize="18" Click="ChangeSign"></Button>
         <Button Grid.Row="4" Grid.Column="4" Margin="5" Content="√" FontSize="18" Click="Square"></Button>
         <Button Grid.Row="5" Grid.Column="3" Margin="5" Content="/" FontSize="18" Click="Operation"></Button>
-        <Button Grid.Row="5" Grid.Column="4" Margin="5" Content="%" FontSize="18"></Button>
+        <Button Grid.Row="5" Grid.Column="4" Margin="5" Content="%" FontSize="18" Click="Persent"></Button>
         <Button Grid.Row="6" Grid.Column="3" Margin="5" Content="*" FontSize="18" Click="Operation"></Button>
         <Button Grid.Row="6" Grid.Column="4" Margin="5" Content="1/X" FontSize="18" Click="SelfDelete"></Button>
         <Button Grid.Row="7" Grid.Column="3" Margin="5" Content="-" FontSize="18" Click="Operation"></Button>

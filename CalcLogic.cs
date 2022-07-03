@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Calculator;
@@ -49,9 +50,11 @@ public class CalcLogic
     }
     public void GetResult()
     {
-        ExecuteOperation(lastOp);
-        state = State.firstOp;
-        isBlocked = true;
+        if (!isBlocked) {
+            ExecuteOperation(lastOp);
+            state = State.secondOp;
+            isBlocked = true;
+        }
     }
     public void ExecuteOperation(string opType) 
     { 
@@ -79,7 +82,7 @@ public class CalcLogic
             state = State.firstOp; 
         } 
     }
-   
+
     public void ResetCalculating() {
         inputBuffer = "0";
         accumulator = 0;
@@ -110,5 +113,11 @@ public class CalcLogic
 
     public void OneDivideX() {
         inputBuffer = (1 / double.Parse(inputBuffer)).ToString();
+    }
+
+    public void PersentOp() {
+        if (state == State.secondOp) {
+            operand = accumulator / 100 * operand;
+        }
     }
 }
