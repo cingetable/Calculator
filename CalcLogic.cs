@@ -24,7 +24,7 @@ public class CalcLogic
     public void SendToInputBuffer(string? elem)
     {
        if (!isBlocked) {
-            inputBuffer = inputBuffer[inputBuffer.Length - 1] == '0' ? inputBuffer = elem : inputBuffer += elem;
+            inputBuffer = inputBuffer[inputBuffer.Length - 1] == '0' && inputBuffer.Length == 1 ? inputBuffer = elem : inputBuffer += elem;
         }  
     }
     public void Delete()
