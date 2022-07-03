@@ -107,5 +107,8 @@ public class CalcLogic
             "Недопустимый ввод";
         isBlocked = true;
     }
-    
+
+    public void OneDivideX() {
+        inputBuffer = (1 / double.Parse(inputBuffer)).ToString();
+    }
 }

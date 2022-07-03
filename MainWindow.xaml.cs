@@ -88,5 +88,10 @@ namespace Calculator
             inputBuffer.Text = calc.inputBuffer;
             ChangeFontSize();
         }
+
+        private void SelfDelete(object sender, RoutedEventArgs e) {
+            calc.OneDivideX();
+            inputBuffer.Text = calc.inputBuffer;
+        }
     }
 }
